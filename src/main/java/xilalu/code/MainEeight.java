@@ -17,35 +17,54 @@ public class MainEeight {
     private static int mod = 99997867;
 
     public static void main(String[] args) {
-        Scanner in = new Scanner(System.in);
-        while (in.hasNext()) {
-            int N = in.nextInt();
-            int D = in.nextInt();
+//        Scanner in = new Scanner(System.in);
+//        while (in.hasNext()) {
+//            int N = in.nextInt();
+//            int D = in.nextInt();
+//            int[] location = new int[N];
+//            for (int i = 0; i < N; i++) {
+//                location[i] = in.nextInt();
+//            }
+//            long count = 0L;
+//
+//            int right = 2;
+//            for (int i = 0; i < N - 2; i++) {
+//                long temp = 0L;
+//                for (int j = right; j < N; j++) {
+//
+//                    if (location[j] - location[i] > D) {
+//                        break;
+//                    } else {
+//                        temp = (long) (j - i);
+//                        right = j;
+//                    }
+//
+//                }
+//                if (temp >= 2)
+//                    count += temp * (temp - 1) / 2 % mod;
+//            }
+//            System.out.println(count % mod);
+//        }
+//        sln();
+        Scanner sc = new Scanner(System.in);
+        while (sc.hasNext()) {
+            int N = sc.nextInt();
+            int D = sc.nextInt();
             int[] location = new int[N];
             for (int i = 0; i < N; i++) {
-                location[i] = in.nextInt();
+                location[i] = sc.nextInt();
             }
             long count = 0L;
-
-            int right = 2;
+            long right = 2;
             for (int i = 0; i < N - 2; i++) {
                 long temp = 0L;
-                for (int j = right; j < N; j++) {
-
+                for (int j = 0; j < N; j++) {
                     if (location[j] - location[i] > D) {
                         break;
-                    } else {
-                        temp = (long) (j - i);
-                        right = j;
                     }
-
                 }
-                if (temp >= 2)
-                    count += temp * (temp - 1) / 2 % mod;
             }
-            System.out.println(count % mod);
         }
-        sln();
     }
 
     public static void sln() {

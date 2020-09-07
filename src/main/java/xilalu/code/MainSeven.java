@@ -3,6 +3,7 @@ package xilalu.code;
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.concurrent.LinkedBlockingQueue;
 
 /**
  * 1. 三个同样的字母连在一起，一定是拼写错误，去掉一个的就好啦：比如 helllo -> hello
@@ -70,48 +71,16 @@ public class MainSeven {
                 }
             }
         }
-
         return res + temp;
     }
 
-    public static String testNum(String str) {
-        Queue<Character> queue = new LinkedList<Character>();
-        String res = "", temp = "";
-        int index = 0;
+    public String testStrTwo(String str) {
+        Queue<Character> queue = new LinkedList<>();
+        String res, temp;
+        int pre = 0;
         for (int i = 0; i < str.length(); i++) {
             queue.offer(str.charAt(i));
         }
-        while(!queue.isEmpty()) {
-            int len = temp.length() - 1;
-            Character ch = queue.poll();
-            if (len < 0) {
-                temp += ch;
-                index++;
-            } else {
-                if (ch.equals(temp.charAt(len))) {
-                    if (index < 2) {
-                        temp += ch;
-                        index++;
-                    } else if (index == 2) {
-                        continue;
-                    }
-                } else {
-                    if (index < 2) {
-                        res += temp;
-                        temp = String.valueOf(ch);
-                        index = 1;
-                    } else {
-                        if (temp.length() < 3) {
-                            temp += ch;
-                        } else {
-                            res += temp;
-                            temp = String.valueOf(ch);
-                            index = 1;
-                        }
-                    }
-                }
-            }
-        }
-        return res + temp;
+        return "";
     }
 }

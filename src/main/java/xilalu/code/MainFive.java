@@ -12,34 +12,22 @@ public class MainFive {
 
     public static void main(String[] args) {
 
-//        int[] weight = {10, 20, 30};
-//        int[] value = {60, 100, 150};
-//
-//        System.out.println(testNum(value, weight));
-        Scanner sc = new Scanner(System.in);
-        int k = sc.nextInt();
-        int[] arr = new int[k];
-//            int total = 0;
-        for (int i = 0; i < k; i++) {
-            arr[i] = sc.nextInt();
-//                total += arr[i];
-        }
-//            int num = total / 2;
-//            int[][] dp = new int[k + 1][num + 1];
-//            for (int i = 1; i <= k; i++) {
-//                for (int j = 1; j <= num; j++) {
-//                    if (arr[i - 1] <= j) {
-//                        dp[i][j] = Math.max(arr[i - 1] + dp[i - 1][j - arr[i - 1]], dp[i - 1][j]);
-//                    } else {
-//                        dp[i][j] = dp[i - 1][j];
-//                    }
-//                }
-//            }
-//            int result = dp[k][num];
-//            System.out.println(total - result * 2);
-        System.out.println(testNumTwo(arr));
+        int[] weight = {10, 20, 30};
+        int[] value = {60, 100, 150};
+
+        System.out.println(testNum(value, weight));
+//        Scanner sc = new Scanner(System.in);
+//        int k = sc.nextInt();
+//        int[] arr = new int[k];
+//        for (int i = 0; i < k; i++) {
+//            arr[i] = sc.nextInt();
+//        }
+//        System.out.println(testNumTwo(arr));
     }
 
+    /**
+     * 0,1背包问题.
+      */
     public static int testNum(int[] value, int[] weight) {
         int n = 3;
         int w = 50;
@@ -53,24 +41,47 @@ public class MainFive {
                 }
             }
         }
-        return dp[n][w];
-    }
+        for (int i = n; i >= 1; i--) {
+            for (int j = w; j >= 1; j--) {
+                if (dp[i][j] == dp[i - 1][w]) {
 
-    public static int testNumTwo(int[] arr) {
+                } else if (dp[i][j] == dp[i][j - 1]) {
 
-        int n = arr.length;
-        int total = Arrays.stream(arr).sum();
-        int w = total / 2;
-        int[][] dp = new int[n + 1][w + 1];
-        for (int i = 1; i <= n; i++) {
-            for (int j = 1; j <= w; j++) {
-                if (arr[i - 1] <= j) {
-                    dp[i][j] = Math.max(arr[i - 1] + dp[i - 1][j - arr[i - 1]], dp[i - 1][j]);
+                } else if (dp[i][j] == dp[i - 1][j - 1]) {
+
                 } else {
-                    dp[i][j] = dp[i - 1][j];
+                    
                 }
             }
         }
-        return total - dp[n][w] * 2;
+        return dp[n][w];
+    }
+
+//    public static int testNumTwo(int[] arr) {
+//
+//        int n = arr.length;
+//        int total = Arrays.stream(arr).sum();
+//        int w = total / 2;
+//        int[][] dp = new int[n + 1][w + 1];
+//        for (int i = 1; i <= n; i++) {
+//            for (int j = 1; j <= w; j++) {
+//                if (arr[i - 1] <= j) {
+//                    dp[i][j] = Math.max(arr[i - 1] + dp[i - 1][j - arr[i - 1]], dp[i - 1][j]);
+//                } else {
+//                    dp[i][j] = dp[i - 1][j];
+//                }
+//            }
+//        }
+//        return total - dp[n][w] * 2;
+//    }
+
+    /**
+     * 购物车问题.
+     * @param arr
+     * @return
+     */
+    public static int shoppingCart(int[] arr) {
+
+        return 0;
     }
 }

@@ -1,6 +1,6 @@
 package xilalu.test;
 
-public class MainTwo {
+public class ForTest {
 
     public static void main(String[] args) {
         int index = 0;

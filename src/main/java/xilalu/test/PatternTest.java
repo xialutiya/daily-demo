@@ -3,7 +3,7 @@ package xilalu.test;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class MainThree {
+public class PatternTest {
 
     public static void main(String[] args) {
         String str = "123893748937486";
