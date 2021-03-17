@@ -1,14 +1,8 @@
 package xilalu.array;
 
-public interface MyList<E> {
-
-    void add(E e);
-
-    void insert(int n, E e);
-
-    void deleted(int n);
-
-    void update(int n, E e);
-
-    E get(int i);
+/**
+ * @author lds
+ * @date 2021/1/12 22:37
+ */
+public interface MyList {
 }
