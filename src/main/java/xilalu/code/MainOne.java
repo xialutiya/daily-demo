@@ -11,12 +11,14 @@ import java.util.Scanner;
  */
 public class MainOne {
 
+    // 000011101 0101010101000010101110000
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int k = sc.nextInt();
         sc.nextLine();
         String str = sc.next();
         System.out.println(num(k, str));
+        System.out.println(numTwo(k, str));
     }
 
     public static int num(int k, String str) {
@@ -46,6 +48,58 @@ public class MainOne {
             while (index < len && chars[index] != '1') {
                 res++;
                 index++;
+            }
+        }
+        return res;
+    }
+
+    private static int numTwo(int k, String str) {
+        char[] chars = str.toCharArray();
+        int len = chars.length;
+        int res = 0;
+        for (int i = 0; i < len; i++) {
+            if (chars[i] == '1') {
+                res++;
+            }
+        }
+        if (res < k) {
+            return 0;
+        }
+        res = 0;
+        boolean flag = true;
+        for (int i = 0; i < len;) {
+            int index = i;
+            int count = 0;
+            int num = 0;
+            int end = 0;
+            while (count < k && index < len) {
+                if (chars[index] == '0' && count == 0) {
+                    num++;
+                }
+                if (chars[index] == '1' && ++count == k) {
+                    flag = false;
+                    res++;
+                    index++;
+                    break;
+                }
+                index++;
+            }
+            if (flag) break;
+            while (index < len && chars[index] != '1') {
+                end++;
+                res++;
+                index++;
+            }
+            flag = true;
+            if (num > 1) {
+                int total = (num - 1) * (end + 1);
+                res += total;
+            }
+
+            if (num == 0) {
+                i++;
+            } else {
+                i += num;
             }
         }
         return res;

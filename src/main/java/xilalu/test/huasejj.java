@@ -10,11 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
 
-/**
- * @author lds
- * @date 2021/1/22 16:57
- */
-public class LiveTest {
+public class huasejj {
 
     public static void main(String[] args) {
 
@@ -28,13 +24,12 @@ public class LiveTest {
         }
 
         try {
-            String strUrl = "https://oss-live-1.videocc.net/record/record/recordf/65724fa7f120190614163541338/2021-01-22-16-20-04_2021-01-22-16-21-35.m3u8";
-            String strUrlTwo = "https://oss-live-1.videocc.net/record/record/recordf/65724fa7f120190614163541338/2021-01-22-16-20-04_2021-01-22-16-21-35.m3u8";
+            String strUrl = "https://hot22.yyhdyl.com/20191230/6f814eaa13dd20a38ef4a6101db323bf/hls/hls-720p.m3u8?t=1577699284&sign=8fb71188cfae706a1697ebc91d3b91c4";
             URL url = new URL(strUrl);
 
             int index1 = strUrl.indexOf("//") + 2;
             int index2 = strUrl.indexOf("/", index1);
-//            String domainHttp = strUrl.substring(0, index2);
+            String domainHttp = strUrl.substring(0, index2);
             String domain = strUrl.substring(index1, index2);
 
             URLConnection URLconnection = url.openConnection();
@@ -45,24 +40,22 @@ public class LiveTest {
                 InputStream in = httpConnection.getInputStream();
                 InputStreamReader isr = new InputStreamReader(in);
                 BufferedReader bufr = new BufferedReader(isr);
-//                String str;
-//                int indexTS = 0;
+                String str;
+                int indexTS = 0;
                 //download
-//                while ((str = bufr.readLine()) != null) {
-//                    if (str.contains(".jpg")) {
-//                        String pathname = from + domain + "/" + String.format("%4d", indexTS++).replace(" ", "0") + ".ts";
-//                        System.out.println(domainHttp + str);
-//                        System.out.println(pathname);
-//                        FileUtils.copyURLToFile(new URL(domainHttp + str), new File(pathname));
-//                        //break;
-//                    }
-//                }
+                while ((str = bufr.readLine()) != null) {
+                    if (str.contains(".jpg")) {
+                        String pathname = from + domain + "/" + String.format("%4d", indexTS++).replace(" ", "0") + ".ts";
+                        System.out.println(domainHttp + str);
+                        System.out.println(pathname);
+                        FileUtils.copyURLToFile(new URL(domainHttp + str), new File(pathname));
+                        //break;
+                    }
+                }
 
                 if (OS.contains("indows")) {
                     Runtime rt = Runtime.getRuntime();
-//                    Process pr = rt.exec("cmd /c copy /b " + from + domain + "\\*.ts  " + from + domain + ".mp4");
-                    Process pr = rt.exec("cmd copy " + strUrl + from + "test" + ".mp4");
-//                    Process pr = rt.exec("cmd copy " + from + domain + "\\*.ts  " + from + domain + ".mp4");
+                    Process pr = rt.exec("cmd /c copy /b " + from + domain + "\\*.ts  " + from + domain + ".mp4");
                     BufferedReader input = new BufferedReader(new InputStreamReader(pr.getInputStream(), "GBK"));
                     String line = null;
                     while ((line = input.readLine()) != null) {
@@ -80,5 +73,4 @@ public class LiveTest {
             e.printStackTrace();
         }
     }
-
 }

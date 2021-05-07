@@ -4,7 +4,7 @@
  *@date: 2017年5月8日
  *@copyright: 2017 www.oppein.com Inc. All rights reserved.
  */
-package com.oppein.mtds.customerabutment.domain.util;
+package xilalu.id;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -110,8 +110,8 @@ public class IdWorker implements Serializable {
 
 		if (timestamp < lastTimestamp) {
 			LOG.error(String.format("clock is moving backwards.  Rejecting requests until %d.", lastTimestamp));
-			throw new BusinessException(String.format(
-					"Clock moved backwards.  Refusing to generate id for %d milliseconds", lastTimestamp - timestamp));
+//			throw new BusinessException(String.format(
+//					"Clock moved backwards.  Refusing to generate id for %d milliseconds", lastTimestamp - timestamp));
 		}
 
 		if (lastTimestamp == timestamp) {

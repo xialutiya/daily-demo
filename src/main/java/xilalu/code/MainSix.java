@@ -26,26 +26,8 @@ public class MainSix {
         System.out.println(testNum(arr));
     }
 
-    public static long testNumTwo(int[] arr) {
-
-        int left = 0, right = arr.length - 1;
-        long leftSum = arr[left], rightSum = arr[right], maxSum = 0;
-        while (left < right) {
-            if (leftSum == rightSum) {
-                maxSum += leftSum;
-                leftSum += arr[++left];
-                rightSum += arr[--right];
-            } else if (leftSum < rightSum) {
-                leftSum += arr[++left];
-            } else {
-                rightSum += arr[--right];
-            }
-        }
-        return maxSum;
-    }
-
     public static long testNum(int[] arr) {
-
+        // 1, 2, 3, 4, 7, 10.
         int left = 0, right = arr.length - 1;
         long leftSum = arr[left], rightSum = arr[right], maxSum = 0;
         while (left < right) {

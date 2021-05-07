@@ -34,5 +34,6 @@ public class SelectSort {
                 arr[index] = temp;
             }
         }
+
     }
 }

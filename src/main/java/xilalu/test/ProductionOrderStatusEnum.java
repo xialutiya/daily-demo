@@ -1,4 +1,6 @@
-package com.oppein.retail.order.enums;
+package xilalu.test;
+
+import org.springframework.util.StringUtils;
 
 import java.util.EnumSet;
 import java.util.Map;
@@ -84,6 +86,18 @@ public enum ProductionOrderStatusEnum {
     
     public String getName() {
         return name;
+    }
+
+    public static String getValueByName(String value) {
+        if (StringUtils.isEmpty(value)) {
+            return "";
+        }
+        for (ProductionOrderStatusEnum productionOrderStatusEnum : ProductionOrderStatusEnum.values()) {
+            if (productionOrderStatusEnum.value().equalsIgnoreCase(value)) {
+                return productionOrderStatusEnum.getName();
+            }
+        }
+        return "";
     }
     
     private static final Map<String, String> CODE_NAME_MAP = EnumSet.allOf(ProductionOrderStatusEnum.class).stream().collect(Collectors.toMap(ProductionOrderStatusEnum::value, ProductionOrderStatusEnum::getName));

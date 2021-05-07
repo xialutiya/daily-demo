@@ -16,6 +16,7 @@ public class MainTwo {
         int a = sc.nextInt();
         int b = sc.nextInt();
         System.out.println(testNum(a, b));
+        System.out.println(testNumTwo(a, b));
     }
 
     public static String testNum(int a, int b) {
@@ -34,6 +35,27 @@ public class MainTwo {
                 }
                 map.put(a, sb.length());
                 sb.append(a / b);
+                a = a % b;
+            }
+        }
+        return sb.toString();
+    }
+
+    public static String testNumTwo(int a, int b) {
+        StringBuilder sb = new StringBuilder();
+        sb.append(a / b);
+        if (a % b != 0) {
+            sb.append(".");
+            a = a % b;
+            Map<Integer, Integer> maps = new HashMap<>();
+            while (a != 0) {
+                a *= 10;
+                if (maps.get(a) != null) {
+                    sb.insert(maps.get(a), "(").append(")");
+                    break;
+                }
+                maps.put(a, sb.length());
+                sb.append(a/b);
                 a = a % b;
             }
         }

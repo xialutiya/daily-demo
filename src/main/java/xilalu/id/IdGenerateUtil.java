@@ -1,6 +1,5 @@
-package com.oppein.mtds.customerabutment.domain.util;
+package xilalu.id;
 
-import org.apache.commons.lang3.RandomStringUtils;
 
 import java.util.UUID;
 
@@ -32,9 +31,9 @@ public final class IdGenerateUtil {
 	 * @param count 位数
 	 * @return
 	 */
-	public static String generateId(final int count) {
-		return RandomStringUtils.randomNumeric(count);
-	}
+//	public static String generateId(final int count) {
+//		return RandomStringUtils.randomNumeric(count);
+//	}
 
 	/**
 	 * 返回固定18位唯一性ID

@@ -1,8 +1,14 @@
 package xilalu.entity;
 
+import lombok.Data;
+import lombok.ToString;
+
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Data
+@ToString
 public class Person {
 
     private String name;
@@ -46,11 +52,9 @@ public class Person {
         this.lists = lists;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
+
+
+    public void init() {
+        this.name = "xialu";
     }
 }

@@ -1,8 +1,5 @@
 package xilalu.code;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 /**
  * 给定一个数组，每个元素范围是0~K（K < 整数最大值2^32），
  * 将该数组分成两部分，使得 |S1- S2|最小，
@@ -27,7 +24,7 @@ public class MainFive {
 
     /**
      * 0,1背包问题.
-      */
+     */
     public static int testNum(int[] value, int[] weight) {
         int n = 3;
         int w = 50;
@@ -38,19 +35,6 @@ public class MainFive {
                     dp[i][cw] = Math.max(value[i - 1] + dp[i - 1][cw - weight[i - 1]], dp[i - 1][cw]);
                 } else {
                     dp[i][cw] = dp[i - 1][cw];
-                }
-            }
-        }
-        for (int i = n; i >= 1; i--) {
-            for (int j = w; j >= 1; j--) {
-                if (dp[i][j] == dp[i - 1][w]) {
-
-                } else if (dp[i][j] == dp[i][j - 1]) {
-
-                } else if (dp[i][j] == dp[i - 1][j - 1]) {
-
-                } else {
-                    
                 }
             }
         }
@@ -77,6 +61,7 @@ public class MainFive {
 
     /**
      * 购物车问题.
+     *
      * @param arr
      * @return
      */
