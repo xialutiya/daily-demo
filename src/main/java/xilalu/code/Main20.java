@@ -7,16 +7,16 @@ import java.util.Scanner;
  * 允许有值相同的元素;请设计算法找到该数组排序后第三大的元素值并输出.
  *
  * @author lds
- * @date 2021/3/18 22:38
  */
 public class Main20 {
 
-    private static int k = 3;
+    private static int k;
 
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
         int len = sc.nextInt();
+        k = sc.nextInt();
         int[] arr = new int[len];
         for (int i = 0; i < len; i++) {
             arr[i] = sc.nextInt();

@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 /**
- * 2.给定一个数组A[n], 定义数组的众数 ( Majority Element) 为数组中出现次数超过 n/2 次的元素,
+ * 给定一个数组A[n], 定义数组的众数 ( Majority Element) 为数组中出现次数超过 n/2 次的元素,
  * 假设数组A[n]非空且一定存在众数, 请设计算法找到该众数并输出.
  *
  * @author lds

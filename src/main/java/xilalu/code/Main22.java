@@ -1,6 +1,5 @@
 package xilalu.code;
 
-import java.math.BigInteger;
 import java.util.Scanner;
 
 /**

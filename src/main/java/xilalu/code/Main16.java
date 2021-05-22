@@ -39,26 +39,4 @@ public class Main16 {
             num--;
         }
     }
-
-    public static void boardSort(int m, int[] arr) {
-        int len = arr.length;
-        int groupNum = len / m;
-        int num = len % m;
-        int[] copyArr = new int[len];
-        int index = 0;
-        if (num > 0) {
-            for (int i = m * groupNum; i < len; i++) {
-                copyArr[index++] = arr[i];
-            }
-        }
-        while (groupNum > 0) {
-            for (int i = (groupNum - 1) * m; i < groupNum * m; i++) {
-                copyArr[index++] = arr[i];
-            }
-            groupNum--;
-        }
-        for (int i : copyArr) {
-            System.out.print(i + " ");
-        }
-    }
 }
